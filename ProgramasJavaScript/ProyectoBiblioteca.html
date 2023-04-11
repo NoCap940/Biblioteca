@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <script src="mensaje.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Biblioteca Virtual</title>
+</head>
+<body>
+  <header>
+    <h1>Biblioteca Virtual</h1>
+    <nav>
+      <ul>
+        <li><a href="#agregar_libro">Agregar Libro</a></li>
+        <li><a href="#ver_todos_los_libros">Ver todos los libros</a></li>
+        <li><a href="#editar_informacion_de_un_libro">Editar Información de un Libro</a></li>
+        <li><a href="#buscar_por_autor">Buscar por Autor</a></li>
+        <li><a href="#eliminar_libros">Eliminar Libros</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="agregar_libro">
+      <h2>Agregar Libro</h2>
+      <form id="formularioAgregarLibro" method="POST" onsubmit="event.preventDefault(); agregarLibro();">
+        <label for="titulo">Título:</label>
+        <input type="text" id="titulo" name="titulo" required>
+        <label for="autor">Autor:</label>
+        <input type="text" id="autor" name="autor" required>
+        <label for="descripcion">Descripcion:</label>
+        <input type="text" id="descripcion" name="descripcion" required>
+        <label for="añoPublicado">Año de publicación:</label>
+        <input type="text" id="añoPublicado" name="añoPublicado" required>
+        <button id="botonAgregar" onclick="mostrarMensaje('El libro ha sido agregado correctamente.');">Agregar libro</button>
+      </form>
+
+      
+      <div id="respuesta"></div>
+      <div id="mensaje"></div>
+
+    </section>
+
+    <section id="ver_todos_los_libros">
+      <h2>Ver todos los libros</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Descripcion</th>
+            <th>Año de Publicación</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Aquí se agregarán las filas de la tabla dinámicamente mediante PHP -->
+        </tbody>
+      </table>
+    </section>
+
+    <section id="editar_informacion_de_un_libro">
+        <h2>Editar Información de un Libro</h2>
+        <form action="editar_libro.php" method="POST">
+          <label for="id_libro">ID del libro:</label>
+          <input type="number" id="id_libro" name="id_libro" required>
+          <label for="titulo">Título:</label>
+          <input type="text" id="titulo" name="titulo" required>
+          <label for="autor">Autor:</label>
+          <input type="text" id="autor" name="autor" required>
+          <label for="descripcion">Descripcion:</label>
+          <input type="text" id="descripcion" name="descripcion" required>
+          <label for="anio_publicacion">Año de publicación:</label>
+          <input type="number" id="anio_publicacion" name="anio_publicacion" required>
+          <button type="submit">Guardar Cambios</button>
+        </form>
+      </section>
+
+
+      <section id="buscar_por_autor">
+        <h2>Buscar por Autor</h2>
+        <form action="buscar_por_autor.php" method="POST">
+          <label for="autor">Autor:</label>
+          <input type="text" id="autor" name="autor" required>
+          <button type="submit">Buscar</button>
+        </form>
+      </section>
+      
+      <section id="eliminar_libros">
+        <h2>Eliminar Libros</h2>
+        <form action="eliminar_libro.php" method="POST">
+          <label for="id_libro">ID del libro:</label>
+          <input type="number" id="id_libro" name="id_libro" required>
+          <button type="submit">Eliminar Libro</button>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <p>&copy; 2023 Biblioteca Virtual</p>
+    </footer>   
+</body>
+</html>
+    
+      
+      
